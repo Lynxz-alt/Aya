@@ -1,13 +1,13 @@
 import streamlit as st
 import random
 
-# 🎵 Musik lembut
-st.audio("https://www.bensound.com/bensound-music/bensound-dreams.mp3", autoplay=True)
-
-# 🌸 Konfigurasi halaman
+# WAJIB: set_page_config harus paling atas sebelum perintah Streamlit lain
 st.set_page_config(page_title="Aya Celestia 💖", page_icon="🌸", layout="centered")
 
-# 🌷 CSS untuk tampilan cantik & rapi
+# Musik autoplay
+st.audio("https://www.bensound.com/bensound-music/bensound-dreams.mp3", autoplay=True)
+
+# CSS cantik
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
@@ -38,43 +38,37 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 🌼 Judul
+# Judul
 st.markdown("<h1 style='text-align: center;'>Hai Aya Celestia! 🌸</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; font-size: 18px;'>Cuma ingin bikin kamu senyum sebentar hari ini 💖</p>", unsafe_allow_html=True)
 
-# 💕 Bagian 1: Nama & Pujian
-st.markdown("### 💕 Sambutan & Pujian")
-name = st.text_input("Tulis nama kamu di sini 😚")
-if name:
-    st.success(f"Halo {name}! Kamu cantik banget hari ini 😍")
+# 💕 Sambutan & Pujian
+with st.expander("💕 Sambutan & Pujian"):
+    name = st.text_input("Tulis nama kamu di sini 😚")
+    if name:
+        st.success(f"Halo {name}! Kamu cantik banget hari ini 😍")
 
-if st.button("Klik untuk dapat pujian 💌"):
-    compliments = [
-        "Kamu seperti matahari pagi, selalu membawa semangat 🌞",
-        "Tawa kamu menular banget, bikin hati hangat 💕",
-        "Setiap hari jadi lebih indah kalau ada kamu 🫶",
-        "Kamu itu kayak lagu favorit, nggak pernah bosen didengerin 🎵",
-        "Lucunya kamu tuh nggak ada obat 🐰"
-    ]
-    st.info(random.choice(compliments))
+    if st.button("Klik untuk dapat pujian 💌"):
+        compliments = [
+            "Kamu seperti matahari pagi, selalu membawa semangat 🌞",
+            "Tawa kamu menular banget, bikin hati hangat 💕",
+            "Setiap hari jadi lebih indah kalau ada kamu 🫶",
+            "Kamu itu kayak lagu favorit, nggak pernah bosen didengerin 🎵",
+            "Lucunya kamu tuh nggak ada obat 🐰"
+        ]
+        st.info(random.choice(compliments))
 
-st.markdown("---")
+# ❤️ Mood Booster
+with st.expander("❤️ Mood Booster"):
+    st.markdown("<div class='heart'>💗 💖 💞 💕 💘</div>", unsafe_allow_html=True)
 
-# 💖 Bagian 2: Mood Booster
-st.markdown("### ❤️ Mood Booster")
-st.markdown("<div class='heart'>💗 💖 💞 💕 💘</div>", unsafe_allow_html=True)
+# ✉️ Pesan untuk Felix
+with st.expander("✉️ Kirim Pesan ke Felix"):
+    msg = st.text_input("Mau nitip pesan ke Felix?")
+    if msg:
+        st.success("Hehe noted~ Felix pasti baca 😎🫶")
 
-st.markdown("---")
-
-# ✉️ Bagian 3: Pesan untuk Felix
-st.markdown("### ✉️ Kirim Pesan ke Felix")
-msg = st.text_input("Mau nitip pesan ke Felix?")
-if msg:
-    st.success("Hehe noted~ Felix pasti baca 😎🫶")
-
-st.markdown("---")
-
-# 📜 Bagian 4: Surat dari Felix
+# 📜 Surat dari Felix
 with st.expander("📜 Buka Surat dari Felix"):
     st.write("""
     Dear Aya,
@@ -88,7 +82,7 @@ with st.expander("📜 Buka Surat dari Felix"):
     Felix
     """)
 
-# 🐣 Bagian 5: Fun Fact
+# 🐣 Fun Fact Tentang Felix
 with st.expander("🐣 Fun Fact Tentang Felix"):
     facts = [
         "Suka banget nasi goreng jam 11 malam 🍛",
@@ -98,14 +92,12 @@ with st.expander("🐣 Fun Fact Tentang Felix"):
     if st.button("Fun Fact Hari Ini"):
         st.info(random.choice(facts))
 
-# 🎁 Bagian 6: Hadiah
+# 🎁 Hadiah dari Felix
 if st.button("Buka hadiah dari Felix 🎁"):
     st.balloons()
     st.success("Kamu dapet peluk virtual terhangat hari ini 🤗💗")
 
-st.markdown("---")
-
-# 💌 Bagian 7: Pesan Harian
+# 💌 Pesan Spesial Hari Ini
 with st.expander("💌 Pesan Spesial Hari Ini"):
     daily_messages = [
         "Semoga harimu seindah senyummu hari ini 💕",
@@ -115,7 +107,7 @@ with st.expander("💌 Pesan Spesial Hari Ini"):
     ]
     st.success(random.choice(daily_messages))
 
-# 💞 Bagian 8: Kutipan Romantis
+# 💞 Kutipan Romantis
 with st.expander("💞 Kutipan Romantis dari Felix"):
     quotes = [
         "Cinta itu bukan tentang seberapa sering kamu bilang 'aku cinta kamu', tapi seberapa besar kamu membuktikannya. 💖",
@@ -124,7 +116,7 @@ with st.expander("💞 Kutipan Romantis dari Felix"):
     ]
     st.markdown(f"<div style='text-align: center; font-style: italic; color: #d63384;'>{random.choice(quotes)}</div>", unsafe_allow_html=True)
 
-# 🎲 Bagian 9: Mini Game
+# 🎲 Mini Game
 with st.expander("🎲 Tebak Angka dari Felix"):
     angka = random.randint(1, 5)
     tebakan = st.number_input("Tebak angka dari 1 - 5", min_value=1, max_value=5, step=1)
