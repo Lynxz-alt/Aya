@@ -41,7 +41,7 @@ if msg:
 
 # 📜 Surat dari Felix
 with st.expander("📜 Buka surat dari Felix"):
-    st.write(\"\"\"
+    st.write("""
     Dear Aya,
 
     Kamu itu seperti senja yang selalu dinanti.
@@ -51,7 +51,7 @@ with st.expander("📜 Buka surat dari Felix"):
 
     🌸 Salam hangat,
     Felix
-    \"\"\")
+    """)
 
 # 💡 Fun Fact Tentang Felix
 st.markdown("## 🐣 Fun Fact Tentang Felix")
