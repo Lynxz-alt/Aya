@@ -5,7 +5,7 @@ import random
 st.set_page_config(page_title="Aya Celestia 💖", page_icon="🌸", layout="centered")
 
 # Musik autoplay
-st.audio("https://www.bensound.com/royalty-free-music/track/love", autoplay=True)
+st.audio("https://www.bensound.com/royalty-free-music/track/acoustic-breeze", autoplay=True)
 
 # CSS cantik
 st.markdown("""
